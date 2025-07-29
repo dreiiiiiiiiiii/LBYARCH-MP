@@ -1,0 +1,22 @@
+﻿#include <xmmintrin.h>
+#include "distance_kernel.h"
+
+void distance_kernel_c(float *X1, float *X2, float *Y1, float *Y2, float *Z, uint32_t n) {
+    for (uint32_t i = 0; i < n; i++) {
+        __m128 x1 = _mm_load_ss(&X1[i]);
+        __m128 x2 = _mm_load_ss(&X2[i]);
+        __m128 y1 = _mm_load_ss(&Y1[i]);
+        __m128 y2 = _mm_load_ss(&Y2[i]);
+
+        __m128 dx = _mm_sub_ss(x2, x1);
+        __m128 dy = _mm_sub_ss(y2, y1);
+
+        __m128 dx2 = _mm_mul_ss(dx, dx);
+        __m128 dy2 = _mm_mul_ss(dy, dy);
+
+        __m128 sum = _mm_add_ss(dx2, dy2);
+        __m128 dist = _mm_sqrt_ss(sum);
+
+        _mm_store_ss(&Z[i], dist);
+    }
+}

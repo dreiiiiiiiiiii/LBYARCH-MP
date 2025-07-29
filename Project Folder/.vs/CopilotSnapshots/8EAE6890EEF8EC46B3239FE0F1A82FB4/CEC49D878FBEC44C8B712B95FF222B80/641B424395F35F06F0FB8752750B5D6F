@@ -1,0 +1,56 @@
+﻿; distance_kernel_asm.asm
+
+section .text
+global distance_kernel_asm
+
+distance_kernel_asm:
+    push rbp
+    mov rbp, rsp
+    sub rsp, 32               ; Shadow space
+
+    ; Save argument registers
+    mov r12, rcx              ; X1
+    mov r13, rdx              ; X2
+    mov r14, r8               ; Y1
+    mov r15, r9               ; Y2
+
+    ; Get Z and n from stack
+    mov rbx, [rsp + 40]       ; Z
+    mov ecx, [rsp + 48]       ; n (as 32-bit int)
+    xor edi, edi              ; i = 0
+
+.loop:
+    cmp edi, ecx
+    jge .done
+
+    mov eax, edi
+    shl eax, 2                ; offset = i * 4
+
+    ; Load and compute (X2 - X1)^2
+    movss xmm0, [r12 + rax]
+    movss xmm1, [r13 + rax]
+    subss xmm1, xmm0
+    movss xmm2, xmm1
+    mulss xmm2, xmm1
+
+    ; Load and compute (Y2 - Y1)^2
+    movss xmm3, [r14 + rax]
+    movss xmm4, [r15 + rax]
+    subss xmm4, xmm3
+    movss xmm5, xmm4
+    mulss xmm5, xmm4
+
+    ; Add and sqrt
+    addss xmm2, xmm5
+    sqrtss xmm2, xmm2
+
+    ; Store result
+    movss [rbx + rax], xmm2
+
+    inc edi
+    jmp .loop
+
+.done:
+    add rsp, 32
+    pop rbp
+    ret
