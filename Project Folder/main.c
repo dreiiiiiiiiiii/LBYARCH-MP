@@ -37,10 +37,6 @@ int main() {
     float* Z_c = (float*)malloc(sizeof(float) * n);
     float* Z_asm = (float*)malloc(sizeof(float) * n);
 
-    // Print addresses and n for ABI debug sanity check
-    printf("X1: %p\nX2: %p\nY1: %p\nY2: %p\nZ_c: %p\nZ_asm: %p\nn: %u\n",
-        (void*)X1, (void*)X2, (void*)Y1, (void*)Y2, (void*)Z_c, (void*)Z_asm, n);
-
     // Check for allocation failure
     if (!X1 || !X2 || !Y1 || !Y2 || !Z_c || !Z_asm) {
         printf("Memory allocation failed\n");
@@ -58,20 +54,23 @@ int main() {
     // Run and time the C kernel
     double time_c = measure_time(distance_kernel_c, X1, X2, Y1, Y2, Z_c, n);
 
+    // Print debug before ASM
+    printf("Running ASM kernel...\n");
     // Run and time the ASM kernel
     double time_asm = measure_time(distance_kernel_asm, X1, X2, Y1, Y2, Z_asm, n);
+    printf("ASM kernel completed.\n");
 
-    // Print the first 10 results and check for correctness
+    // Print the first 10 results
     printf("\nFirst 10 results:\n");
     for (int i = 0; i < 10; i++) {
         printf("Z_c[%d] = %f\tZ_asm[%d] = %f\t%s\n",
-               i, Z_c[i], i, Z_asm[i],
-               fabsf(Z_c[i] - Z_asm[i]) < 1e-5 ? "OK" : "MISMATCH");
+            i, Z_c[i], i, Z_asm[i],
+            fabsf(Z_c[i] - Z_asm[i]) < 1e-5 ? "OK" : "MISMATCH");
     }
 
     // Print timing results
-    printf("\nC kernel time:    %.3f ms\n", time_c);
-    printf("ASM kernel time:  %.3f ms\n", time_asm);
+    printf("C kernel time: %f ms\n", time_c);
+    printf("ASM kernel time: %f ms\n", time_asm);
 
     // Free allocated memory
     free(X1); free(X2); free(Y1); free(Y2);
