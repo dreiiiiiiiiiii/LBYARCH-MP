@@ -4,6 +4,6 @@
 #include <stdint.h>
 
 void distance_kernel_c(float *X1, float *X2, float *Y1, float *Y2, float *Z, uint32_t n);
-void distance_kernel_asm(float *X1, float *X2, float *Y1, float *Y2, float *Z, uint32_t n); // declared for C compiler
+void distance_kernel_asm(float *X1, float *X2, float *Y1, float *Y2, float *Z, uint32_t n);
 
 #endif
