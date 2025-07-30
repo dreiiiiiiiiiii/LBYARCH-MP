@@ -1,18 +1,26 @@
 # LBYARCH MP2: Euclidean Distance Kernel in C and x86-64 Assembly
-## Members:
-  Soper, Heather Lynn
-  Tan, Anthony Andrei
+
+## Members
+- Soper, Heather Lynn  
+- Tan, Anthony Andrei
+
 ## Description
 
 This project computes 2D Euclidean distances using:
 
-- A C implementation
-- An x86-64 assembly implementation (scalar SIMD using `movss`, `subss`, `mulss`, `sqrtss`)
+- A **C implementation**
+- An **x86-64 assembly implementation** using scalar SIMD instructions (`movss`, `subss`, `mulss`, `sqrtss`)
 
 The formula used is:
+
+
 Z[i] = sqrt((X2[i] - X1[i])² + (Y2[i] - Y1[i])²)
 
-Output when ran with 2^28 vectors:
+
+---
+
+## Sample Output (with 2²⁸ elements)
+
 First 10 results:
 Z_c[0] = 83.365547      Z_asm[0] = 83.365547    OK
 Z_c[1] = 55.570717      Z_asm[1] = 55.570717    OK
