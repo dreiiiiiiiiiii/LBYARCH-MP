@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "main.c",
               "ToolTip": "C:\\Users\\antho\\OneDrive\\Documents\\GitHub\\LBYARCH-MP\\Project Folder\\main.c",
               "RelativeToolTip": "main.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAACIAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-07-29T06:08:54.989Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "distance_kernel.asm",
               "ViewState": "AgIAABQAAAAAAAAAAAAAwDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-29T06:09:02.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T06:09:02.805Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "distance_kernel.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-07-29T06:31:06.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T06:31:06.59Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "distance_kernel.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-07-29T06:31:06.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T06:31:06.531Z"
             }
           ]
         }
