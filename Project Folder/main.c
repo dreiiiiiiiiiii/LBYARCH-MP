@@ -15,7 +15,6 @@
 // Z: output array
 // n: number of elements
 // Returns: elapsed time in milliseconds
-
 double measure_time(void (*kernel)(float *, float *, float *, float *, float *, uint32_t), float *X1, float *X2, float *Y1, float *Y2, float *Z, uint32_t n) {
     LARGE_INTEGER freq, start, end;
     QueryPerformanceFrequency(&freq); // Get timer frequency
@@ -30,6 +29,9 @@ double measure_time(void (*kernel)(float *, float *, float *, float *, float *, 
 int main() {
     // Number of elements (2^n)
     int n = 1 << NUM_ELEMENTS;
+
+    // Set random seed for different results each run
+    srand((unsigned int)time(NULL));
 
     // Allocate memory for input and output arrays
     float* X1 = (float*)malloc(sizeof(float) * n);
