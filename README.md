@@ -19,7 +19,7 @@ Z[i] = sqrt((X2[i] - X1[i])² + (Y2[i] - Y1[i])²)
 
 ---
 
-## Sample Output (with 2²⁸ elements)
+## Sample Output (with 2²⁸ vectors)
 
 ### First 10 Results
 
