@@ -25,37 +25,37 @@ Z[i] = sqrt((X2[i] - X1[i])² + (Y2[i] - Y1[i])²)
 
 **C Kernel Output**
 ```text
-Z_c[0] = 83.365547
-Z_c[1] = 55.570717
-Z_c[2] = 68.906548
-Z_c[3] = 34.974667
-Z_c[4] = 27.368090
-Z_c[5] = 55.475929
-Z_c[6] = 37.107937
-Z_c[7] = 49.684017
-Z_c[8] = 55.941528
-Z_c[9] = 21.878452
+Z_c[0] = 78.687569
+Z_c[1] = 37.376823
+Z_c[2] = 46.805424
+Z_c[3] = 14.274357
+Z_c[4] = 57.501900
+Z_c[5] = 67.956902
+Z_c[6] = 15.194291
+Z_c[7] = 90.467491
+Z_c[8] = 71.966949
+Z_c[9] = 59.719151
 ```
 
 
 **ASM Kernel Output**
 ```text
-Z_asm[0] = 83.365547
-Z_asm[1] = 55.570717
-Z_asm[2] = 68.906548
-Z_asm[3] = 34.974667
-Z_asm[4] = 27.368090
-Z_asm[5] = 55.475929
-Z_asm[6] = 37.107937
-Z_asm[7] = 49.684017
-Z_asm[8] = 55.941528
-Z_asm[9] = 21.878452
+Z_asm[0] = 78.687569
+Z_asm[1] = 37.376823
+Z_asm[2] = 46.805424
+Z_asm[3] = 14.274357
+Z_asm[4] = 57.501900
+Z_asm[5] = 67.956902
+Z_asm[6] = 15.194291
+Z_asm[7] = 90.467491
+Z_asm[8] = 71.966949
+Z_asm[9] = 59.719151
 ```
 
 
 ### Timing Results
-- **C kernel average time:** 950.426950 ms  
-- **ASM kernel average time:** 1307.516027 ms
+- **C kernel average time:** 871.898743 ms 
+- **ASM kernel average time:** 1307.540070 ms
 
-Despite both kernels producing correct results, the ASM version was slower by approximately 357 ms. This may be due to the compiler’s ability to apply optimizations in the C version that outpace our scalar manual ASM implementation.
+Despite both kernels producing correct results, the ASM version was slower by approximately 435.641327 ms. This may be due to the compiler’s ability to apply optimizations in the C version that outpace our scalar manual ASM implementation.
 
